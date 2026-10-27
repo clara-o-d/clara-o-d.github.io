@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work · Clara Drysdale</title>
+<meta name="description" content="Internships and jobs: Echo River Capital, Spirae, Mundane Robotics, Recovered Potential, TRE Environmental Strategies, and dog walking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head texture">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span>Clara</span><span>Drysdale</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="research.html">Research</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="split">
+  <div class="list">
+    <h1 class="hand title">Work</h1>
+    <div class="group">
+      <p class="label">Internships</p>
+      <a class="entry" href="#echo">
+        <div class="row"><h3>Echo River Capital</h3><span class="val">2025</span></div>
+        <p>Water technology analyst. Wrote a report on data center water use and talked about it on a podcast.</p>
+        <span class="chip">Jul – Sep 2025</span>
+      </a>
+      <a class="entry" href="#mundane">
+        <div class="row"><h3>Mundane Robotics</h3><span class="val">2025</span></div>
+        <p>Robotics intern. Foot-pedal teleoperation and simulator benchmarking.</p>
+        <span class="chip">Mar – May 2025</span>
+      </a>
+      <a class="entry" href="#recovered">
+        <div class="row"><h3>Recovered Potential</h3><span class="val">2025</span></div>
+        <p>Customer discovery for a startup recovering nitrogen from wastewater.</p>
+        <span class="chip">Mar – Jun 2025</span>
+      </a>
+      <a class="entry" href="#spirae">
+        <div class="row"><h3>Spirae</h3><span class="val">2024</span></div>
+        <p>Renewable energy data analyst. Built a solar forecasting app for microgrids.</p>
+        <span class="chip">Jul – Sep 2024</span>
+      </a>
+    </div>
+    <div class="group">
+      <p class="label">Other jobs</p>
+      <a class="entry" href="#dogs">
+        <div class="row"><h3>Dog walking</h3><span class="val">ongoing</span></div>
+        <p>On Rover. The best-supervised work I do.</p>
+      </a>
+      <a class="entry" href="#tre">
+        <div class="row"><h3>TRE Environmental Strategies</h3><span class="val">2022–24</span></div>
+        <p>Wastewater toxicology lab assistant, all through high school.</p>
+      </a>
+    </div>
+  </div>
+  <div class="photo"><img src="img/teleop.jpg" width="1579" height="1600" alt="A hand guiding a small leader arm on a desk, with a white robot arm behind it."></div>
+</section>
+
+<section class="detail" id="echo">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Echo River Capital · water analyst</p>
+        <h2 class="hand subtitle">Data Centers &amp; Water</h2>
+      </div>
+      <p>Which technologies will actually cut the water that data centers use?</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>Echo River is a venture fund that invests in water technology. Over the summer I went through more than 20 technologies, from chip-level cooling down to where facilities get built, and compared them on maturity, cost, savings and whether existing sites could retrofit them.</p>
+        <p>I interviewed 11 engineers at Apple, Microsoft, 3M, Carollo Engineers and university labs to check what I was finding. That turned into a 24-page report with Clelia Poujade and Peter Yolles, a talk at WaterVent San Francisco, and an episode of 120Water's <i>Make Water Work</i> podcast.</p>
+        <div class="links">
+          <a class="tag" href="https://tinyurl.com/ercdatacenterrep">Read the report</a>
+          <a class="tag" href="https://www.120water.com/podcasts/the-make-water-work-podcast-episode-24-featuring-peter-yolles-clara-drysdale">Podcast on 120Water</a>
+          <a class="tag" href="https://makewaterwork.podbean.com/e/peter-yolles-clara-drysdale-data-center-innovation-cooling-the-future-make-water-work-024/">Podcast on Podbean</a>
+        </div>
+      </div>
+      <div class="pair">
+        <div><figure class="tilt"><a href="https://tinyurl.com/ercdatacenterrep"><img src="img/report-cover.jpg" loading="lazy" width="1086" height="1402" alt="Cover of the Echo River Capital Data Center Innovation Report, September 2025."></a></figure></div>
+        <div><figure class="tilt r"><a href="https://www.120water.com/podcasts/the-make-water-work-podcast-episode-24-featuring-peter-yolles-clara-drysdale"><img src="img/podcast-cover.jpg" loading="lazy" width="470" height="516" alt="Podcast artwork: Peter Yolles and Clara Drysdale, Data Center Innovation and Cooling the Future."></a></figure></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="mundane">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Mundane Robotics · robotics intern</p>
+        <h2 class="hand subtitle">Driving a Robot With Your Feet</h2>
+      </div>
+      <p>Flight pedals for the base, a SpaceMouse for the arm.</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>I built a teleoperation setup for a mobile manipulator with nine degrees of freedom. Flight pedals drive the base, and a 3D SpaceMouse moves the six-axis arm, so one person can run both at once.</p>
+        <p>I also compared the Genesis physics simulator with NVIDIA Isaac Sim on realism, stability and compute cost.</p>
+        <div class="trio" style="margin-top:32px">
+          <figure><img src="img/sim-array.jpg" loading="lazy" width="564" height="416" alt="Rows of identical simulated robot arms on a checkered floor."><figcaption class="cap">Parallel environments in Genesis</figcaption></figure>
+          <figure><img src="img/sim-mobile.jpg" loading="lazy" width="440" height="328" alt="A simulated mobile manipulator robot on a checkered floor."><figcaption class="cap">The robot in sim</figcaption></figure>
+          <figure><img src="img/sim-house.jpg" loading="lazy" width="554" height="418" alt="A simulated robot arm in a furnished apartment."><figcaption class="cap">Household test scene</figcaption></figure>
+        </div>
+      </div>
+      <div style="max-width:380px">
+        <figure class="tilt r"><video src="video/teleop-pedals.mp4" poster="img/teleop-pedals-poster.jpg" width="720" height="1280" controls muted playsinline loop preload="none" aria-label="Video looking down at feet working the flight pedals while the simulation runs on the monitors."></video></figure>
+        <p class="cap">The pedals in use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="recovered">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Recovered Potential · Stanford Climate Ventures</p>
+        <h2 class="hand subtitle">Who Pays for Recovered Nitrogen?</h2>
+      </div>
+      <p>Customer discovery for a startup turning wastewater nitrogen into a product.</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>We did interviews, policy research and cost modeling to find where recovering nitrogen and phosphorus from wastewater pays off first. I worked with sustainability leads at JBS and Darling Ingredients, which led to the team's first two letters of intent.</p>
+      </div>
+      <div>
+        <figure class="tilt"><img src="img/rp-team.jpg" loading="lazy" width="1008" height="580" alt="The Recovered Potential team in front of a projected title slide."></figure>
+        <p class="cap">Final pitch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="spirae">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Spirae · renewable energy data analyst</p>
+        <h2 class="hand subtitle">Forecasting Solar</h2>
+      </div>
+      <p>A forecasting app for microgrid operators, from the database to the dashboard.</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>I built the whole thing in Python and PostgreSQL: pulling live site and weather data, running the forecasts, and showing operators production against forecast, with automated reports. I compared LSTM and Prophet models at two utility-scale sites, and the best got to 15.5 kW mean absolute error. A refactor later cut the code by 56%.</p>
+        <p>I wrote every line of it myself. No AI.</p>
+      </div>
+      <div>
+        <figure class="tilt"><img src="img/spirae-dash.jpg" loading="lazy" width="1600" height="724" alt="Spirae dashboard chart of forecast solar power over several days, with a shaded confidence band."></figure>
+        <p class="cap">Three-day forecast with its confidence band.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="dogs">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Dog walker · Rover</p>
+        <h2 class="hand subtitle">The Regulars</h2>
+      </div>
+      <p>I also walk dogs through Rover. Here are some of my coworkers.</p>
+    </div>
+    <div class="trio">
+      <figure class="tilt"><img src="img/dog-trail.jpg" loading="lazy" width="1200" height="1600" alt="A white fluffy dog on a leash walking a gravel trail beside a marsh."></figure>
+      <figure class="tilt r"><img src="img/dog-sit.jpg" loading="lazy" width="1538" height="1600" alt="A black and white dog in a red harness sitting on a wood floor, looking up."></figure>
+      <figure class="tilt"><img src="img/dog-bed.jpg" loading="lazy" width="1463" height="1600" alt="A brown dog in a harness lying on a bed, looking sideways at the camera."></figure>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="tre">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">TRE Environmental Strategies · Fort Collins, CO</p>
+        <h2 class="hand subtitle">Where It Started</h2>
+      </div>
+      <p>Two years in a wastewater toxicology lab, April 2022 to April 2024. I ran titrations and chemical analyses on industrial wastewater to trace contaminants back to their source and check EPA compliance, and I trained and managed a team of three.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot texture">
+  <div class="wrap">
+    <h2 class="hand">Say Hello</h2>
+    <p><a href="mailto:claraod@stanford.edu">claraod@stanford.edu</a> · <a href="https://linkedin.com/in/clara-drysdale">LinkedIn</a> · <a href="https://github.com/clara-o-d">GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>

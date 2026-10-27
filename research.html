@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Clara Drysdale</title>
+<meta name="description" content="Techno-economic models of atmospheric water harvesting and lithium extraction, ML for electrolyte thermodynamics, and neutrino reconstruction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head texture">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span>Clara</span><span>Drysdale</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="work.html">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="split">
+  <div class="list">
+    <h1 class="hand title">Research</h1>
+    <div class="group">
+      <p class="label">Current</p>
+      <a class="entry" href="#sawh">
+        <div class="row"><h3>Water from air</h3><span class="val">$7.57/m³</span></div>
+        <p>Optimizing a solar-powered water harvester for 14,711 sites around the world, then mapping what the water would cost at each one.</p>
+        <span class="chip">DELTA Group · since Jun 2025</span>
+      </a>
+      <a class="entry" href="#lithium">
+        <div class="row"><h3>Lithium from brine</h3><span class="val">in progress</span></div>
+        <p>A full process model of a lithium carbonate plant, checked against what a real producer reports.</p>
+        <span class="chip">WE3 Lab · since Apr 2025</span>
+      </a>
+    </div>
+    <div class="group">
+      <p class="label">Coursework and earlier</p>
+      <a class="entry" href="#salts">
+        <div class="row"><h3>Choosing the salt</h3><span class="val">Best Paper</span></div>
+        <p>Optimizing the salt blend in a water-harvesting hydrogel for each climate. AA222 final project.</p>
+        <span class="chip">Spring 2026 · with Veronica Fish</span>
+      </a>
+      <a class="entry" href="#pitzer">
+        <div class="row"><h3>Predicting Pitzer coefficients</h3><span class="val">R² 0.96</span></div>
+        <p>Machine learning on ion properties to predict electrolyte activity parameters. CS 229 project.</p>
+        <span class="chip">Fall 2025</span>
+      </a>
+      <a class="entry" href="#neutrino">
+        <div class="row"><h3>Neutrino event reconstruction</h3><span class="val">2024</span></div>
+        <p>Testing a deep-learning reconstruction package on simulated ICARUS events.</p>
+        <span class="chip">Colorado State &amp; SLAC</span>
+      </a>
+    </div>
+  </div>
+  <div class="photo"><img src="img/group-meeting.jpg" width="1600" height="1130" style="object-position: 28% 50%" alt="Clara and a colleague in front of two screens showing the title slide of her talk on atmospheric water harvesting."></div>
+</section>
+
+<section class="detail" id="sawh">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">DELTA Group · Prof. Carlos Díaz-Marín</p>
+        <h2 class="hand subtitle">Water From Air</h2>
+      </div>
+      <p>How much would it cost to get drinking water from a solar-powered harvester, and where would it be worth doing?</p>
+    </div>
+
+    <figure class="plate">
+      <img src="img/sawh-map.png" loading="lazy" width="1760" height="792" alt="World map of land grid cells shaded by the cost of harvested water. Darkest blue, the cheapest, covers the humid tropics; pale sand, the most expensive, covers high latitudes and the driest deserts.">
+      <div class="legend">
+        <span>Cost of water, $/m³</span>
+        <div class="ramp"><i></i><span><b>3</b><b>6</b><b>9</b><b>12</b><b>15+</b></span></div>
+      </div>
+    </figure>
+    <p class="cap">Cost at each of the 14,711 sites, for a device you could actually build: fixed tilt, with each day's schedule picked from the previous day's weather.</p>
+
+    <div class="cols" style="margin-top:56px">
+      <div class="text">
+        <p>The device is a hydrogel loaded with lithium chloride. It soaks up water vapor overnight, and in the morning the sun heats it and drives the water out onto a condenser. I couple a heat and mass transfer model of that cycle to a levelized cost of water, then optimize the gel thickness, vapor gap, salt loading and daily schedule for every site.</p>
+        <p>I also built a heat and mass transfer model of the solar-thermal condenser following ISO 15099 and checked it against field measurements.</p>
+        <p>Running the full physics everywhere would take far too long, so I compress each site's weather with PCA, train a neural-network surrogate on 15,472 simulated years, and run Bayesian optimization on A100 GPUs on Stanford's Sherlock cluster.</p>
+        <dl class="stats">
+          <div><dt>Median cost</dt><dd>$7.57/m³</dd></div>
+          <div><dt>Best sites</dt><dd>about $3.50/m³</dd></div>
+          <div><dt>Sites at $5/m³ or less</dt><dd>24%</dd></div>
+          <div><dt>Surrogate error, annual yield</dt><dd>0.6% median</dd></div>
+        </dl>
+        <p style="margin-top:24px">If water is cheap to move, desalination wins everywhere. If moving it costs five times the baseline, the harvester is cheaper at 36% of sites, mostly far inland.</p>
+        <div class="links">
+          <a class="tag" href="https://github.com/clara-o-d/SAWH_TEAs">Code on GitHub</a>
+          <a class="tag" href="https://doi.org/10.1016/j.device.2025.100798">Device paper (Wilson &amp; Díaz-Marín)</a>
+        </div>
+      </div>
+      <div>
+        <figure class="tilt"><img src="img/poster.jpg" loading="lazy" width="1600" height="1221" alt="Clara next to her poster, Optimizing Atmospheric Water Harvesting: A Techno-Economic Analysis."></figure>
+        <p class="cap">Poster session, October 2026. With Peter Bazianos, Garin Gross and Carlos Díaz-Marín.</p>
+        <figure class="tilt r" style="margin-top:40px"><img src="img/lab-group.jpg" loading="lazy" width="1600" height="535" alt="About twenty members of the DELTA Group outside an ivy-covered building."></figure>
+        <p class="cap">The DELTA Group.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="lithium">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">WE3 Lab · Prof. Meagan Mauter</p>
+        <h2 class="hand subtitle">Lithium From Brine</h2>
+      </div>
+      <p>What does a tonne of battery-grade lithium carbonate cost to make, and what drives that cost?</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>I model a conventional brine operation from the wellfield to the dried product in Pyomo, using WaterTAP, IDAES and PrOMMiS. Reaktoro tracks the brine chemistry as it concentrates, and historical weather sets how big the evaporation ponds need to be. The whole plant is solved as one nonlinear cost minimization.</p>
+        <p>To check it, I ran the model for an operating plant on the Salar de Atacama, and it lines up closely with the producer's reported cost. Now I'm running it on brines from other salars to see how chemistry changes the cost. Paper in progress.</p>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:6px">The plant, in order</p>
+        <dl class="stats" style="margin-top:0">
+          <div><dt>1. Wellfield</dt><dd>pump the brine</dd></div>
+          <div><dt>2. Evaporation ponds</dt><dd>concentrate</dd></div>
+          <div><dt>3. Softening</dt><dd>remove Mg, Ca</dd></div>
+          <div><dt>4. Solvent extraction</dt><dd>remove boron</dd></div>
+          <div><dt>5. Precipitation</dt><dd>Li₂CO₃</dd></div>
+          <div><dt>6. Dewatering and crushing</dt><dd>battery grade</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="salts">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">AA222 Engineering Design Optimization · with Veronica Fish</p>
+        <h2 class="hand subtitle">Choosing the Salt</h2>
+      </div>
+      <p>Which salt, or mix of salts, should go in the hydrogel? It depends on the climate. This paper won the class Best Paper Award.</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>The harvester's gel can be loaded with LiCl, NaCl, CaCl₂, MgCl₂ or a blend. Given a site's night humidity, temperature and sunlight, we pick the blend and salt-to-polymer ratio that minimize the cost of water. The ZSR mixing rule handles the blended brine, a fixed-point loop solves for gel temperature, and SLSQP does the optimization. We used the epsilon-constraint method to trace the tradeoff between yield and cost.</p>
+        <p>I built the physical model, wrote the constraints and collected the climate and materials data. Veronica led the Pareto analysis and the writing.</p>
+        <dl class="stats">
+          <div><dt>Humid tropics</dt><dd>about $3/m³</dd></div>
+          <div><dt>Arid interiors</dt><dd>over $75/m³</dd></div>
+          <div><dt>Best salt, warm and humid</dt><dd>NaCl</dd></div>
+          <div><dt>Best salt, temperate</dt><dd>MgCl₂</dd></div>
+          <div><dt>Best salt, cold or dry</dt><dd>LiCl</dd></div>
+        </dl>
+        <p style="margin-top:24px">The cheapest salt wins where it's most humid, and night humidity moves the cost far more than any economic input.</p>
+      </div>
+      <div>
+        <figure class="plate"><img src="img/aa222-pareto.jpg" loading="lazy" width="1162" height="870" alt="Pareto front of daily yield against cost of water for Mumbai, with bars underneath showing the blend shifting from mostly MgCl2 at low yield to mostly LiCl at high yield."></figure>
+        <p class="cap">Mumbai: more water costs more per cubic meter, and the blend shifts from MgCl₂ to LiCl as you push yield up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="pitzer">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">CS 229 · with Michael James and Liam Rose</p>
+        <h2 class="hand subtitle">Predicting Pitzer Coefficients</h2>
+      </div>
+      <p>Can basic ion properties predict how a salt behaves in water, well enough to screen sorbents?</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>Pitzer coefficients describe how a dissolved salt deviates from ideal behavior, but they're only measured for a limited set of salts. We took 108 electrolytes with literature values, matched each to 15 ion properties (radii, molecular weight, charge type), and trained regression models to predict β⁽⁰⁾ and β⁽¹⁾.</p>
+        <p>Gradient boosting did best. Electrolyte type mattered most, then van der Waals radius. This feeds into my DELTA work on which salt properties control water uptake.</p>
+        <div class="links"><a class="tag" href="https://github.com/clara-o-d/activity-prediction">Code on GitHub</a></div>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:6px">Test-set R²</p>
+        <div class="bars" style="margin-top:8px">
+          <div class="row"><span>β⁽⁰⁾, boosting</span><div class="bar" style="width:96%"></div><span class="n">0.96</span></div>
+          <div class="row"><span>β⁽⁰⁾, baseline</span><div class="bar alt" style="width:83%"></div><span class="n">0.83</span></div>
+          <div class="row" style="margin-top:20px"><span>β⁽¹⁾, boosting</span><div class="bar" style="width:98%"></div><span class="n">0.98</span></div>
+          <div class="row"><span>β⁽¹⁾, baseline</span><div class="bar alt" style="width:71%"></div><span class="n">0.71</span></div>
+        </div>
+        <p class="cap">Baseline is the standard empirical correlation on charge and radius.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="detail" id="neutrino">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <p class="label">Colorado State &amp; SLAC · Prof. Michael Mooney</p>
+        <h2 class="hand subtitle">Neutrino Events</h2>
+      </div>
+      <p>Before water, I worked on particle physics.</p>
+    </div>
+    <div class="cols">
+      <div class="text">
+        <p>I evaluated SPINE, a deep-learning reconstruction package, on simulated neutral-current π⁰ events in ICARUS, a liquid-argon time projection chamber at Fermilab. I also helped with detector calibration.</p>
+      </div>
+      <div>
+        <figure class="tilt"><img src="img/spine-event.jpg" loading="lazy" width="473" height="350" alt="3D display of a reconstructed particle interaction, with tracks and showers in different colors."></figure>
+        <p class="cap">One reconstructed event.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot texture">
+  <div class="wrap">
+    <h2 class="hand">Say Hello</h2>
+    <p><a href="mailto:claraod@stanford.edu">claraod@stanford.edu</a> · <a href="https://linkedin.com/in/clara-drysdale">LinkedIn</a> · <a href="https://github.com/clara-o-d">GitHub</a></p>
+  </div>
+</footer>
+</body>
+</html>
